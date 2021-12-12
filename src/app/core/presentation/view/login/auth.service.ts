@@ -15,7 +15,7 @@ export class AuthService {
      this._usuario = new Usuario();
      this._token = "";
    }
-   private urlpost:string ='http://localhost:9090/api/rol/roles';
+   private urlpost:string ='https://sigca-upeu.herokuapp.com/api/rol/roles';
    public get usuario():Usuario{
      if(this._usuario != null){
        return this._usuario;
@@ -38,7 +38,7 @@ export class AuthService {
  
    login(usuario: Usuario):Observable<any>{
     
-     const urlEndpoint = 'http://localhost:9090/oauth/token';
+     const urlEndpoint = 'https://sigca-upeu.herokuapp.com/oauth/token';
      const credenciales = btoa('angularapp' + ':' + '1234567');
      const httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
      'Authorization': 'Basic '+ credenciales});
