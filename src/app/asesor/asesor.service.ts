@@ -9,7 +9,7 @@ import { Pedido } from '../models/pedido';
 })
 export class AsesorService {
   private urlpost:string ='https://sigca-upeu.herokuapp.com/api/reportes'; 
-  private url:string ='https://sigca-upeu.herokuapp.com/pedidooracion'; 
+  private url:string ='https://sigca-upeu.herokuapp.com/api/pedidooracion'; 
   constructor(private http: HttpClient, private router: Router) { }
 
   getProgramasAsesor(id:number): Observable<ProgramaAsesor[]>{
