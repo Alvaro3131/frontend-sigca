@@ -1,0 +1,31 @@
+
+
+.contenedor{
+    border: 2.3px solid #007b5f; height: 190px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.satisfaccion{
+    text-align: end;
+}
+.barra{
+    height: 100px;
+    width: 100%;
+}
+.boton{
+    text-align: end;
+}
+.btn{
+    background-color: #007b5f;
+    color: white;
+    margin-right: 10px; 
+}
+.bo{
+    margin-left: 50px;
+}
+
+.card{
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-top: 10px;
+}

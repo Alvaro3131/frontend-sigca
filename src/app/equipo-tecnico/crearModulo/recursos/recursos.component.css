@@ -1,0 +1,94 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-contenedor {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.main-contenedor__header {
+  background-color: #007b5f;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+.main-recursos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.main-recursos__item {
+  /* border: 1px solid black; */
+  border-bottom: 1px solid black;
+  padding: 0.7rem;
+}
+
+.icon {
+  font-size: 25px;
+  margin-right: 1.5rem;
+  position: absolute;
+}
+
+.icon--red {
+  color: red;
+}
+
+.icon--blue {
+  color: blue;
+  left: 30px;
+}
+
+.main-icon {
+  display: inline-block;
+  height: 70%;
+  position: relative;
+}
+
+.icon:hover {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.name-recurso {
+  width: 75%;
+}
+
+.icon-agregar {
+  top: 15px;
+  left: -30px;
+  color: brown;
+}
+
+.bg-modal {
+  background-color: #007b5f;
+}
+
+.modal-size-recurso {
+  height: 300px;
+}
+
+.button {
+  background: none;
+  border: none;
+}
+
+/* .button:active {
+  border: 1px solid black;
+} */
+
+.red {
+  color: red;
+}

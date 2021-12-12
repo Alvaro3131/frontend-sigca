@@ -1,0 +1,22 @@
+<section class="size-main">
+  <article class="size-modulo">
+    <SIGCA-crear-modulo-principal
+      (idModulo)="recibirModulo($event)"
+    ></SIGCA-crear-modulo-principal>
+  </article>
+  <article class="size-cuadros" *ngIf="estadoCuadro">
+    <SIGCA-cuadro-sesiones
+      class="d-flex justify-content-around align-items-center h-100"
+      [id_modulo]="id_modulo"
+      (status)="obtenerEstadoCambio($event)"
+      (id)="obtenerIdSesion($event)"
+    ></SIGCA-cuadro-sesiones>
+  </article>
+  <article class="size-cuadros" *ngIf="!estadoCuadro">
+    <SIGCA-recursos
+      [id_sesion]="id_sesion"
+      (status)="obtenerEstadoCambio($event)"
+      class="d-flex justify-content-around align-items-center h-100 w-100"
+    ></SIGCA-recursos>
+  </article>
+</section>

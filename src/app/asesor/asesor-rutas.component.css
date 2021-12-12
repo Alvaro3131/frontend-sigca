@@ -1,0 +1,13 @@
+.titulo1{
+    font-size: 150%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.btn-success{
+    background-color: #007b5f;
+}
+.card{
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-top: 10px;
+}

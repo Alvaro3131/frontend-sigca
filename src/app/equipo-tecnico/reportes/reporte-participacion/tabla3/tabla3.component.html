@@ -1,0 +1,31 @@
+<table class="table table-bordered">
+    
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Banco</th>
+            <th>Distrito</th>
+            <th>Personas</th>
+            <th>Vistos</th>
+           
+            <th>Progreso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let progreso of progresos; let i=index ">
+            <td>{{i+1}}</td>
+            <td>{{progreso.BANCO}}</td>
+            <td>{{progreso.NO_DISTRITO}}</td>
+            <td>{{progreso.Personas}}</td>
+            <td>{{progreso.Vistos}}</td>
+        
+            <td class="Progreso">
+                
+                <progress class="barra" max="100"  value={{progreso.Progreso}}> </progress>
+            </td>
+            </tr>
+           
+            
+       
+    </tbody>
+</table>

@@ -1,0 +1,338 @@
+<section class="w-100 h-100 p-2 main">
+  <div>
+    <button class="btn btn-primary" (click)="cambiarEstado()">Regresar</button>
+  </div>
+
+  <article class="main-contenedor w-50">
+    <header class="main-contenedor__header">
+      <h1 class="title d-inline-block w-100 text-white">
+        {{ sesion.no_sesion }}
+      </h1>
+      <div class="main-icon">
+        <i
+          class="fas fa-plus-square icon icon-agregar"
+          data-bs-toggle="modal"
+          data-bs-target="#agregarRecurso"
+          (click)="traerTipoRecursos()"
+        ></i>
+      </div>
+    </header>
+
+    <section class="main-recursos">
+      <article
+        class="main-recursos__item"
+        *ngFor="let dato of recurso; index as i"
+      >
+        <p class="d-inline-block name-recurso mb-0">
+          {{ i + 1 }}. {{ dato.nombrerecurso }}
+        </p>
+        <div class="main-icon w-25">
+          <i
+            class="far fa-trash-alt icon icon--red"
+            (click)="eliminarRecurso(dato.id)"
+          ></i>
+          <i
+            class="fas fa-edit icon icon--blue"
+            data-bs-toggle="modal"
+            data-bs-target="#agregarRecurso"
+            (click)="editarRecurso(dato.id)"
+          ></i>
+        </div>
+      </article>
+    </section>
+  </article>
+</section>
+
+<!-- TODO: MODAL PARA SELECCIONAR RECURSO -->
+
+<div
+  class="modal fade"
+  id="agregarRecurso"
+  tabindex="-1"
+  aria-labelledby="modalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content bg-modal">
+      <div class="modal-header">
+        <h5 class="modal-title d-block h3 text-white text-center title-modal">
+          Elegir Recurso
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-danger"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body modal-size-recurso">
+        <form>
+          <div class="mb-3 d-flex justify-content-center">
+            <div
+              *ngFor="let tipo of tipo"
+              class="d-flex justify-content-center"
+            >
+              <button
+                *ngIf="tipo.id_tipo == 1"
+                class="button btn"
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#agregarDocumento"
+                (click)="traerObtenerIdTipo(tipo.id_tipo)"
+              >
+                <img src="/assets/images/documento.png" alt="" />
+              </button>
+              <button
+                *ngIf="tipo.id_tipo == 3"
+                class="button btn"
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#agregarCuestionario"
+                (click)="traerObtenerIdTipo(tipo.id_tipo)"
+              >
+                <img src="/assets/images/cuestionario.png" alt="" />
+              </button>
+              <button
+                *ngIf="tipo.id_tipo == 2"
+                class="button btn"
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#agregarVideo"
+                (click)="traerObtenerIdTipo(tipo.id_tipo)"
+              >
+                <img src="/assets/images/video.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ** MODAL PARA EL DOCUMENTO -->
+
+<div
+  class="modal fade"
+  id="agregarDocumento"
+  tabindex="-1"
+  aria-labelledby="modalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-modal">
+      <div class="modal-header" *ngIf="statusRecurso">
+        <h5 class="modal-title h3 text-white">Registrar Documento</h5>
+        <button
+          type="button"
+          class="btn-close text-danger"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-header" *ngIf="!statusRecurso">
+        <h5 class="modal-title h3 text-white">Actualizar Documento</h5>
+        <button
+          type="button"
+          class="btn-close text-danger"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div
+        class="
+          p-4
+          modal-body modal-size
+          d-flex
+          flex-column
+          align-items-center
+          justify-content-center
+        "
+      >
+        <form>
+          <div class="mb-3">
+            <input
+              name="nombreModulo"
+              type="text"
+              class="form-control"
+              placeholder=" Ingrese Nombre"
+              [(ngModel)]="insrecurso.nombrerecurso"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              name="nombreModulo"
+              type="file"
+              class="form-control mb-3"
+              placeholder=" Ingrese Archivo"
+            />
+          </div>
+          <div class="mb-3">
+            <textarea
+              class="form-control mb-3"
+              type="text"
+              name="descripcion"
+              id="desc"
+              cols="30"
+              rows="6"
+              [(ngModel)]="insrecurso.descripcion"
+              placeholder="Ingresar Descripcion"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <select
+              #secuencia
+              class="w-100 form-select"
+              aria-label="Default select example"
+            >
+              <option selected disabled autofocus>Seleccione Secuencia</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" *ngIf="statusRecurso">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="limpiarDocumento()"
+        >
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="agregarRecurso()"
+        >
+          Guardar
+        </button>
+      </div>
+      <div class="modal-footer" *ngIf="!statusRecurso">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="limpiarDocumento()"
+        >
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="actualizarDocumento()"
+        >
+          Actualizar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ** MODAL PARA EL CUESTIONARIO -->
+
+<!-- ** MODAL PARA EL VIDEO -->
+<div
+  class="modal fade"
+  id="agregarVideo"
+  tabindex="-1"
+  aria-labelledby="modalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-modal">
+      <div class="modal-header" *ngIf="statusRecurso">
+        <h5 class="modal-title h3 text-white">Registrar Video</h5>
+        <button
+          type="button"
+          class="btn-close text-danger"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-header" *ngIf="!statusRecurso">
+        <h5 class="modal-title h3 text-white">Actualizar Video</h5>
+        <button
+          type="button"
+          class="btn-close text-danger"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div
+        class="
+          p-4
+          modal-body modal-size
+          d-flex
+          flex-column
+          align-items-center
+          justify-content-center
+        "
+      >
+        <form>
+          <div class="mb-3">
+            <input
+              name="nombreModulo"
+              type="text"
+              class="form-control"
+              placeholder=" Ingrese Nombre"
+              [(ngModel)]="insrecurso.nombrerecurso"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              name="nombreModulo"
+              type="text"
+              class="form-control mb-3"
+              placeholder=" Ingrese Link"
+            />
+          </div>
+          <div class="mb-3">
+            <textarea
+              class="form-control mb-3"
+              type="text"
+              name="descripcion"
+              id="desc"
+              cols="30"
+              rows="5"
+              [(ngModel)]="insrecurso.descripcion"
+              placeholder="Ingresar Descripcion"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <select
+              #categoria
+              class="w-100 form-select"
+              aria-label="Default select example"
+            >
+              <option selected disabled autofocus>Seleccione Secuencia</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="limpiarDocumento()"
+        >
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

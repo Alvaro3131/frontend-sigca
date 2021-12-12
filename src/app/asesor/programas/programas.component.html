@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    
+    <div class="row">
+
+      
+          <div class="card" style="width: 25rem;" *ngFor="let pro of reportes; let i = index">
+            <div class="card-body">
+              <h5 class="card-title"> {{pro.BANCO}}-{{pro.MODULO}}</h5>
+              <progress class="barra" max="100"  value={{pro.PROGRESO}}> </progress>
+              <button type="button" class="btn bo " (click)="listar(i)">Datos Socio</button>
+              <button type="button" class="btn " (click)="pedido(i)">Pedido Oracion</button>
+            </div>
+          </div>
+      
+          
+    </div>
+</div>
+

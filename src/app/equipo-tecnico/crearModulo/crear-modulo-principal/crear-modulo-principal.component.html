@@ -1,0 +1,268 @@
+<article class="p-2">
+  <Header class="w-100 mt-3 d-flex justify-content-center">
+    <h1 class="m-0">MÓDULOS</h1>
+  </Header>
+  <hr />
+  <div class="container-fluid d-flex justify-content-center w-100 mt-4">
+    <div class="d-flex align-items-center">
+      <select
+        #modulo
+        class="form-select"
+        name="modulos"
+        aria-label="Default select example"
+        (change)="getVal()"
+      >
+        <option selected autofocus>Selecione Módulo</option>
+        <option
+          value="{{ modulo.id_modulo }}"
+          *ngFor="let modulo of selectModulo"
+          (click)="traerSesion(modulo.id_modulo)"
+        >
+          {{ modulo.no_modulo }}
+        </option>
+      </select>
+      <div
+        class="d-flex align-items-center w-100 position-relative"
+        *ngIf="estadoUpdateDelete"
+      >
+        <i
+          class="
+            fas
+            fa-plus-square
+            size-icon size-icon--movesesion
+            text-warning
+          "
+          data-bs-toggle="modal"
+          data-bs-target="#modalSesion"
+        ></i>
+        <i
+          (click)="deleteModulo()"
+          class="far fa-trash-alt text-danger size-icon size-icon--movedelete"
+        ></i>
+        <i
+          data-bs-toggle="modal"
+          data-bs-target="#modalUpdate"
+          (click)="updateModuloLleanarDatos()"
+          class="fas fa-edit text-success size-icon size-icon--moveupdate"
+        ></i>
+      </div>
+    </div>
+    <button
+      (click)="abrirModal()"
+      type="button"
+      class="btn btn-outline-success"
+      data-bs-toggle="modal"
+      data-bs-target="#miModal"
+    >
+      +
+    </button>
+    <select class="form-select" aria-label="Default select example">
+      <option disabled autofocus>Selecione Año</option>
+      <option value="1">2021</option>
+      <option value="2">2020</option>
+      <option value="3">2019</option>
+    </select>
+  </div>
+
+  <!-- ** Modal para el guardar  -->
+
+  <div
+    class="modal fade"
+    id="miModal"
+    tabindex="-1"
+    aria-labelledby="modalTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h3">Registrar Capacitacion</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body modal-size">
+          <form>
+            <div class="mb-3">
+              <input
+                name="nombreModulo"
+                type="text"
+                class="form-control"
+                [(ngModel)]="nombreModulo"
+                placeholder=" Ingrese Modulo"
+              />
+            </div>
+            <div class="mb-3">
+              <select
+                #categoria
+                class="w-100 form-select"
+                aria-label="Default select example"
+                (change)="getvalCategoria()"
+              >
+                <option selected disabled autofocus>
+                  Seleccione Categoria
+                </option>
+                <option
+                  value="{{ categoria.id_categoria }}"
+                  *ngFor="let categoria of selectCategoria"
+                >
+                  {{ categoria.no_categoria }}
+                </option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="limpiar()"
+          >
+            Cerrar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="guardar()"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ** Modal para el EDITAR  -->
+
+  <div
+    class="modal fade"
+    id="modalUpdate"
+    tabindex="-1"
+    aria-labelledby="modalTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h3">Actualizar Capacitacion</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body modal-size">
+          <form>
+            <div class="mb-3">
+              <input
+                name="nombreModulo"
+                type="text"
+                class="form-control"
+                [value]="updateModulo.no_modulo"
+                [(ngModel)]="nombreModulo"
+                placeholder=" Ingrese Modulo"
+              />
+            </div>
+            <div class="mb-3">
+              <select
+                #categoriaupdate
+                class="w-100 form-select"
+                aria-label="Default select example"
+                (change)="getvalCategoriaUpdate()"
+              >
+                <option selected disabled autofocus>
+                  Seleccione Categoria
+                </option>
+                <option
+                  value="{{ categoria.id_categoria }}"
+                  *ngFor="let categoria of selectCategoria"
+                >
+                  {{ categoria.no_categoria }}
+                </option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="limpiar()"
+          >
+            Cerrar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="editarModulo()"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ** Modal para el Sesion -->
+
+  <div
+    class="modal fade"
+    id="modalSesion"
+    tabindex="-1"
+    aria-labelledby="modalTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h3">Agregar Sesion</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body modal-size-sesion">
+          <form>
+            <div class="mb-3">
+              <input
+                name="nombreModulo"
+                type="text"
+                class="form-control"
+                [(ngModel)]="inSesion.no_sesion"
+                placeholder=" Ingrese Sesion"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="limpiarSesion()"
+          >
+            Cerrar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="insertarSesion()"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

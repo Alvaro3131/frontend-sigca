@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SIGCA</title>
+    
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    
+
+  </head>
+  <body>
+   
+    
+    <SIGCA-root></SIGCA-root>
+    <script type="text/javascript">
+      function contar() {
+          
+          var checkboxes = document.getElementById("form1").checkbox; //Array que contiene los checkbox
+          var array=[];
+          var cont = 0; //Variable que lleva la cuenta de los checkbox pulsados
+          var modulos='';
+          for (var x=0; x < checkboxes.length; x++) {
+           if (checkboxes[x].checked) {
+            
+            
+            cont = cont + 1;
+            var y=parseInt(checkboxes[x].value);
+          sessionStorage.setItem('mo',y);
+          var hola= sessionStorage.getItem('mo');
+          array.push(hola);
+         
+           }
+          
+            
+           
+          }
+         
+          
+          console.log(array.join())
+          sessionStorage.setItem('mo',array.join());
+        
+         }
+         function conta() {
+            
+            var checkboxes = document.getElementById("form2").checkbox; //Array que contiene los checkbox
+            var array=[];
+            var cont = 0; //Variable que lleva la cuenta de los checkbox pulsados
+            var modulos='';
+            for (var x=0; x < checkboxes.length; x++) {
+             if (checkboxes[x].checked) {
+              
+              
+              cont = cont + 1;
+              var y=parseInt(checkboxes[x].value);
+            sessionStorage.setItem('ban',y);
+            var hola= sessionStorage.getItem('ban');
+            array.push(hola);
+           
+             }
+            
+              
+             
+            }
+           
+          
+            console.log(array.join())
+            sessionStorage.setItem('ban',array.join());
+          
+           }
+        
+           function obtener(){
+               contar();
+               conta();
+               
+           }
+         
+      </script>
+  </body>
+</html>

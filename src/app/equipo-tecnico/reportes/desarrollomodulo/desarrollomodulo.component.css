@@ -1,0 +1,40 @@
+.contenedor{
+    padding-top: 30px;
+}
+.titulo1{
+    font-size: 150%;
+}
+.btn-success{
+    background-color: #007b5f;
+}
+.contenedor-opciones{
+    padding-top: 10px;
+}
+.contenedor-boton{
+   padding-left: 310px;
+}
+.contenedor-boton1{
+    text-align:end;
+    padding-right: 40px;
+    margin-bottom: 10px;
+ }
+ .tabla{
+    
+    padding-top: 30px;
+    
+ }
+ .card{
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.barra{
+    height: 100px;
+    width: 100%;
+}
+
+#tablas{
+   
+    height: 2000px;
+ 
+ }

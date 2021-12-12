@@ -1,0 +1,62 @@
+<div class="container-fluid " >
+    
+    <div class="row contenedor" >
+        <div class="col-8">
+            <h1 class="titulo1">Generar Reporte/ Desarrollo Modulo</h1>
+        </div>
+        <div class="col-4 contenedor-boton">
+         <button type="button" class="btn btn-success" (click)="go()">Enviar</button>
+     </div>
+     <div class="contenedor-opciones row">
+         <div class="col-3">
+            <label for="exampleInputEmail1" class="form-label">SEDE:</label>
+             <select class="form-select" aria-label="Default select example"  (click)="limpiar()" [(ngModel)]="model.sede" >
+                 
+                 <option value={{sede.id_sede}} *ngFor="let sede of sede"  >{{sede.no_sede}}</option>
+               </select>
+               
+         </div>
+         <div class="col-3">
+            <label for="exampleInputEmail1" class="form-label">DISTRITO:</label>
+             <select class="form-select" aria-label="Default select example" (click)="listarDistritos()" [(ngModel)]="model.distrito">
+                
+                 <option value={{distrito.id_distrito}} *ngFor="let distrito of distritos " >{{distrito.no_distrito}}</option>
+                 
+               </select>
+         </div>
+         <div class="col-3">
+            <label for="exampleInputEmail1" class="form-label">BANCO:</label>
+             <select class="form-select" aria-label="Default select example" (click)="listarbancos()" [(ngModel)]="model.banco">
+                 
+                 <option value={{banco.id_bancocomunal}} *ngFor="let banco of bancos">{{banco.no_bancocomunal}}</option>
+                 
+               </select>
+         </div>
+        
+        
+     
+     </div>
+     <div class="col-12 tabla">
+       
+       <div class="row">
+      
+          <div class="card" style="width: 25rem;" *ngFor="let pro of reportes; let i = index">
+            <div class="card-body">
+              <h5 class="card-title"> {{pro.BANCO}}-{{pro.MODULO}}</h5>
+              <progress class="barra" max="100"  value={{pro.PROGRESO}}></progress>
+             Progreso: {{pro.PROGRESO}}%
+            </div>
+          </div>
+         
+          
+       </div>
+      
+     </div>
+    
+    </div>
+ </div>
+ 
+ 
+
+ 
+ 

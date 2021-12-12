@@ -1,0 +1,29 @@
+<div class="container text-center margin" style="width: 90%;" >
+    <div class="col-12 caja" >
+      <div class="pedido altur" >
+        <div class="divisor"></div>
+        <h1 class="medio">
+          Mi Módulo</h1>
+      </div>
+      <div class="caja2">
+        <h2 class="caja3"><b>{{nombre}}</b></h2>
+      <img
+        src="/assets/images/1.jpg"
+        class="img-fluid"
+        alt=""
+      />
+      <div class="row">
+        <div class="col-10">
+          <progress class="barra" max="100"  value={{progreso}}> </progress>
+        </div>
+        <div class="col-2" style="text-align: center; margin-top: 10px;">Mi Progreso</div>
+      </div>
+      <div class="caja3">
+        <button routerLink="/vistaModulo" type="button" class="btn btn-success boton" (click)="guardar()">Ingresar</button>
+      </div>
+      <div class="divi">
+
+      </div>
+      </div>
+    </div>
+</div>

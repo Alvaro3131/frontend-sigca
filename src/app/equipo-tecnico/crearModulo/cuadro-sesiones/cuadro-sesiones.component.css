@@ -1,0 +1,46 @@
+.section-main {
+  width: 22%;
+  height: 200px;
+  /* border: 1px solid black; */
+  /* border-radius: 10px; */
+}
+
+.header {
+  /* border-radius: 10px; */
+  height: 100%;
+}
+
+.header__title {
+  color: white;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #007b5f;
+}
+
+.header__title:hover {
+  background-color: #1a9175b0;
+}
+
+.header__icon {
+  font-size: 2rem;
+  margin-left: 3px;
+  display: inline-block;
+}
+
+.header__icon--red {
+  color: red;
+}
+
+.header__icon--yellow {
+  color: black;
+}
+
+.header__icon:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.bg-modal {
+  background-color: #007b5f;
+}

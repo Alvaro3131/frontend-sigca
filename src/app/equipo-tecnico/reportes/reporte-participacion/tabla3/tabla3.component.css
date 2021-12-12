@@ -1,0 +1,12 @@
+td,th, barra-progreso{
+    text-align: center;
+}
+.Progreso{
+    padding-top: 14px;
+   
+}
+.barra{
+    height: 25px;
+    width: 100%;
+   
+}

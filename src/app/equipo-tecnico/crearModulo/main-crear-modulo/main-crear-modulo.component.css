@@ -1,0 +1,13 @@
+.size-modulo {
+  height: 25%;
+  /* border: 1px solid orangered; */
+}
+
+.size-cuadros {
+  height: 75%;
+  /* border: 1px solid red; */
+}
+.size-main {
+  /* border: 1px solid purple; */
+  height: 100vh;
+}

@@ -1,0 +1,21 @@
+.margenes-costado {
+  padding: 0;
+  height: 100vh;
+}
+
+.size-1 {
+  height: 10%;
+}
+
+.size-2 {
+  height: 90%;
+}
+
+.main-info {
+  overflow-x: auto;
+}
+
+.ocultar {
+  display: none;
+  transition: all 0.5s;
+}

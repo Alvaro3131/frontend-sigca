@@ -1,0 +1,25 @@
+<div class="container-fluid margenes-costado">
+  <header class="row m-0 size-1">
+    <div class="col-xl-12 p-0">
+      <SIGCA-nav-top (statusSidebar)="recibirEstado($event)"></SIGCA-nav-top>
+    </div>
+  </header>
+
+  <!-- <button #cambio (click)="valor()">Cambiar</button> -->
+
+  <section class="row m-0 size-2">
+    <div #sidebar class="col-xl-2 p-0 animation">
+      <SIGCA-sidebar
+        (link)="recibirLink($event)"
+        class="m-0"
+        [opened]="statusReceived"
+      ></SIGCA-sidebar>
+    </div>
+    <iframe
+      #marcoIframe
+      src=""
+      frameborder="0"
+      class="col-xl-10 main-info"
+    ></iframe>
+  </section>
+</div>

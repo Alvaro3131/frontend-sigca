@@ -1,0 +1,80 @@
+<section
+  *ngFor="let datos of datosMostrarSesion; index as i"
+  class="section-main"
+>
+  <!--?? Sesiones -->
+  <header class="header d-flex p-1">
+    <button
+      class="header__title w-100"
+      (click)="datosMostarRecurso(datos.id_sesion)"
+    >
+      {{ i + 1 }}.{{ datos.no_sesion | uppercase }}
+    </button>
+    <div class="d-flex align-items-center">
+      <i
+        class="far fa-trash-alt header__icon header__icon--red"
+        (click)="eliminarSesion(datos.id_sesion)"
+      ></i>
+      <i
+        class="fas fa-edit header__icon header__icon--yellow"
+        data-bs-toggle="modal"
+        data-bs-target="#modalUpdateSesion"
+        (click)="traerIdSesion(datos.id_sesion)"
+      ></i>
+    </div>
+  </header>
+
+  <div
+    class="modal fade"
+    id="modalUpdateSesion"
+    tabindex="-1"
+    aria-labelledby="modalTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content bg-modal">
+        <div class="modal-header">
+          <h5 class="modal-title h3 text-white">Actualizar Sesion</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body modal-size-sesion">
+          <form>
+            <div class="mb-3">
+              <input
+                name="nombreModulo"
+                type="text"
+                class="form-control"
+                [(ngModel)]="sesion.no_sesion"
+                placeholder=" Ingrese Sesion"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="limpiarSesion()"
+          >
+            Cerrar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="editarSesion()"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ?? Recursos -->
+</section>

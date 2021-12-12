@@ -1,0 +1,76 @@
+<div class="container-fluid ">
+    <div class="row contenedor">
+        <div class="col-8">
+            <h1 class="titulo1">Generar Reporte/ Paticipacion Seminario</h1>
+        </div>
+        <div class="col-4 contenedor-boton">
+         <button type="button" class="btn btn-success" (click)="listartabla()" >Enviar</button>
+     </div>
+     <div class="contenedor-opciones row">
+        <div class="col-4">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="fecha" (change)="leer()">
+                <option selected>Año</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+              </select>
+        </div>
+        <div class="col-4">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="mes" (change)="leer()">
+                <option selected>Mes</option>
+                <option value="01">Enero</option>
+                <option value="02">Febrero</option>
+                <option value="03">Marzo</option>
+                <option value="04">Abril</option>
+                <option value="05">Mayo</option>
+                <option value="06">Junio</option>
+                <option value="07">Julio</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+        </div>
+        <div class="col-4">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="seminario"  >
+                <option selected>Seminario</option>
+                <option value={{seminario.id_SEMINARIO}} *ngFor="let seminario of sem">{{seminario.NO_SEMINARIO}}</option>
+                
+                
+              </select>
+        </div>
+       
+        
+      
+    
+    </div>
+     <div class="contenedor-opciones row">
+         <div class="col-4">
+             <select class="form-select" aria-label="Default select example" [(ngModel)]="nsede" (change)="listarDistritos()">
+                <option selected>Sede</option>
+                <option value={{sede.id_sede}} *ngFor="let sede of sedes">{{sede.no_sede}}</option>
+               </select>
+         </div>
+         <div class="col-4">
+             <select class="form-select" aria-label="Default select example"  [(ngModel)]="distri" (change)="listarbancos()">
+                 <option selected>Distrito</option>
+                 <option value={{distrito.id_distrito}} *ngFor="let distrito of distritos">{{distrito.no_distrito}}</option>
+               </select>
+         </div>
+         <div class="col-4">
+            
+         </div>
+        
+         
+       
+     
+     </div>
+     <div class="col-12 tabla">
+        <iframe src="tabla3"  id="tablas" class="col-12"> </iframe>
+     </div>
+   
+    </div>
+ </div>
+ 
+ 

@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row" style="margin-top:3%">
+    <div class="col">
+     <h1>Banco Comunal</h1>
+    </div>
+    <div class="col">
+     <h1>Modulo</h1>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col">
+            <select (change)="listarBancosComunales()" [(ngModel)]="model.sede"  class="form-select bg-secondary btn-secondary" aria-label="Default select example" >
+              <option value={{sede.id_sede}} *ngFor="let sede of sede">{{sede.no_sede}}</option>
+            </select>
+      </div>
+      <div class="col">
+            <select (change)="listarModulos()" [(ngModel)]="model.categoria" class="form-select bg-secondary btn-secondary" aria-label="Default select example">
+              <option value={{categoria.id_categoria}} *ngFor="let categoria of categoria">{{categoria.no_categoria}}</option>
+            </select>
+      </div>
+  </div>
+  <div class="row" style="margin-top:1%; margin-right:0; margin-left:0;" >
+    <div class="col">
+        <div class="card-body text-success alert-secondary">
+          <div class="card-body text-success" style="overflow-y:auto;">
+                <button type="button" class="btn btn-secondary btn-md mb-3">
+                    SELECCIONAR TODO
+                </button>
+                
+                  <form id="form2" method="post" action="#">
+                    <div *ngFor="let mo of banco ">
+                      <input id="btn-switch" class="lbl-switch" type="checkbox" name="checkbox" id="chk1" value={{mo.id_bancocomunal}}><label >{{mo.no_bancocomunal}}</label><br>
+                    </div>
+            
+                    
+                    
+                    
+                    </form>
+                    
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col">
+            <div class="card-body text-success alert-secondary" style="overflow-y:auto;">
+                <div class="card-body text-success">
+                  <button type="button" class="btn btn-secondary btn-md mb-3">
+                    SELECCIONAR TODO
+                  </button>
+                  <div style="position: relative;">
+                    <form id="form1" method="post" action="#">
+                      <div *ngFor="let modulo of modulo ">
+                        <input id="btn-switch" class="lbl-switch" type="checkbox" name="checkbox" id="chk1" value={{modulo.id_modulo}}><label >{{modulo.no_modulo}}</label><br>
+                      </div>
+              
+                      
+                      
+                      
+                      </form>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button onclick="obtener()" class="btn btn-secondary btn-md mb-3" style="margin-top: 40px; margin-right: 1%;">Asignar</button>
+
+      <button (click)="guardar()" class="btn btn-secondary btn-md mb-3" style="margin-top: 40px; margin-left: 1%;">Guardar</button> 
+    </div>
+  </div>

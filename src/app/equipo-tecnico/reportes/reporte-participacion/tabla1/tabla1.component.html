@@ -1,0 +1,28 @@
+<table class="table table-bordered" id="tblData">
+    <thead>
+        <tr>
+
+            <th>Nombre Completo</th>
+            <th>Direccion</th>
+            <th>Sesion</th>
+            <th>Participacion</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pro of reportes">
+            <td>{{pro.PERSONA}}</td>
+            <td>{{pro.CORREO}}</td>
+            <td>{{pro.SESION}}</td>
+            <td><i class="{{pro.Asistencia}}"></i></td>
+        </tr>
+      
+
+
+
+    </tbody>
+</table>
+<div class="contenedor-boton1">
+    
+    <button type="button" class="btn btn-success" onclick="exportTableToExcel('tblData')">Exportar</button>
+</div>

@@ -1,0 +1,32 @@
+td{
+    text-align: center;
+}
+.contenedor{
+    border: 2.3px solid #007b5f; height: 190px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 10px;
+    
+}
+
+.satisfaccion{
+    text-align: end;
+}
+.barra{
+    height: 100px;
+    width: 100%;
+    margin-top: 20px;
+}
+.boton{
+    text-align: end;
+}
+.titulo1{
+    font-size: 150%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.card{
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-top: 10px;
+}

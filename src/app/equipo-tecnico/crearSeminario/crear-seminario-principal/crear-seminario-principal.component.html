@@ -1,0 +1,176 @@
+<div class="container">
+  <h1 class="titulo">SEMINARIO</h1>
+  <hr />
+  <h1 class="titulo23">
+    Lista Seminarios
+    <button
+      type="button"
+      class="fas fa-plus-circle"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      style="border: none; background-color: white; color: #007b5e"
+      (click)="EditarAgregarSeminario()"
+    ></button>
+  </h1>
+  <div class="contenido23">
+    <table class="table table-striped table-hover" id="tabla">
+      <thead
+        style="background-color: #007b5e; color: white; border: 1px solid gray"
+      >
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">link</th>
+          <th scope="col">FECHA INICIO</th>
+          <th scope="col">FECHA FIN</th>
+          <th scope="col">ACCION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pro of semi">
+          <th scope="row">{{ pro.id_SEMINARIO }}</th>
+          <td>{{ pro.NO_SEMINARIO }}</td>
+          <td>{{ pro.URL_SEMINARIO }}</td>
+          <td>{{ pro.FE_INICIO | date: "mediumDate" }}</td>
+          <td>{{ pro.FE_FIN | date: "mediumDate" }}</td>
+          <td>
+            <i
+              class="fas fa-edit"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              style="background-color: transparent; border: none"
+              (click)="CambiarEstado(pro.id_SEMINARIO)"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #007b5e">
+          <div
+            class="modal-header"
+            style="background-color: white"
+            *ngIf="status"
+          >
+            <h5 class="modal-title" id="exampleModalLabel">Añadir Seminario</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              (click)="limpiarSeminario()"
+            ></button>
+          </div>
+          <div
+            class="modal-header"
+            style="background-color: white"
+            *ngIf="!status"
+          >
+            <h5 class="modal-title" id="exampleModalLabel">Editar Seminario</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              (click)="limpiarSeminario()"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="contenido2">
+              <section class="centro">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    [(ngModel)]="inSeminario.NO_SEMINARIO"
+                  />
+                  <label for="floatingInput">Ingrese Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    [(ngModel)]="inSeminario.URL_SEMINARIO"
+                  />
+                  <label for="floatingInput">Ingrese Link</label>
+                </div>
+                <h5 id="tex"><b>Fecha Inicio:</b></h5>
+                <input
+                  type="date"
+                  class="caja"
+                  name="Fecha"
+                  style="text-align: center"
+                  [(ngModel)]="inSeminario.FE_INICIO"
+                />
+                <h5 id="tex"><b> Fecha Fin:</b></h5>
+                <input
+                  type="date"
+                  class="caja"
+                  name="Fecha"
+                  style="text-align: center"
+                  [(ngModel)]="inSeminario.FE_FIN"
+                />
+              </section>
+            </div>
+          </div>
+          <div
+            class="modal-footer"
+            style="padding-right: 140px; padding-bottom: 10px"
+            *ngIf="status"
+          >
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              (click)="limpiarSeminario()"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="GuardarSeminario()"
+              data-bs-dismiss="modal"
+            >
+              Guardar Cambios
+            </button>
+          </div>
+          <div
+            class="modal-footer"
+            style="padding-right: 140px; padding-bottom: 10px"
+            *ngIf="!status"
+          >
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              (click)="limpiarSeminario()"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="EditarSeminario()"
+              data-bs-dismiss="modal"
+            >
+              Editar Cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

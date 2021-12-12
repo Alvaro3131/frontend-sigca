@@ -1,0 +1,137 @@
+
+  <header class="row m-0 size-1">
+    <div class="col-xl-12 p-0" style="height: 65px;">
+      <SIGCA-nav-top></SIGCA-nav-top>
+    </div>
+  </header>
+  <body>
+<div class=" margenes-costado" style="height: 671px;">
+<div class="container" >
+  <div>
+    <button routerLink="/vistaSocio" class="btn btn-success" style="margin-top: 15px;">
+      <i class="fas fa-angle-left"></i> Volver al Inicio
+    </button>
+  </div>
+<div class="row" >
+
+  <div class="col-4" >
+
+      <cdk-accordion class="example-accordion" style="box-shadow: 2px 2px 5px rgb(124, 124, 124); margin-top: 15px;">
+        <cdk-accordion-item
+          *ngFor="let sesion of sesiones; let index = index;"
+          #accordionItem="cdkAccordionItem"
+          class="example-accordion-item"
+          role="button"
+          tabindex="0"
+          [attr.id]="'accordion-header-' + index"
+          [attr.aria-expanded]="accordionItem.expanded"
+          [attr.aria-controls]="'accordion-body-' + index">
+
+          <div style="background-color: #007B5F; color: white;" class="example-accordion-item-header" (click)="accordionItem.toggle()" (click)="listarRecurso(index)">
+            <b>{{ sesion.no_sesion }}</b>
+            <span class="example-accordion-item-description">
+              Click para {{ accordionItem.expanded ? ' cerrar ' : 'abrir' }}
+            </span>
+          </div>
+
+          <div style="background-color: rgb(226, 226, 226);"
+            class="example-accordion-item-body"
+            role="region"
+            [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + index"
+            [attr.aria-labelledby]="'accordion-header-' + index">
+
+            <a *ngFor="let recurso of recursos; let i = index;" href={{recurso.DESC_RECURSO}} target="reproduccion" onclick="" (click)="guardarAsistencia(i)">
+              <button id="liveToastBtn" class="btn btn-outline-success" type="button" style="width: 100%; text-align: left; margin-top: 10px;">
+                <div class="row">
+                  <div class="col-1" style="color: red;"><i class="fas fa-play"></i></div>
+                  <div class="col-9">{{recurso.NO_RECURSO}}</div>
+                  <div class="col-2"><i class="fas fa-check-circle" style="color: #007B5F;"></i></div>
+                </div>
+              </button>
+            </a>
+
+          </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
+  </div>
+
+
+
+
+
+
+  <div class="col-8" style="margin-top: 20px;">
+    <iframe src="https://www.youtube.com/embed/O0nm9BC_KVM?rel=0" frameborder="0" height="500px" width="100%" name="reproduccion" style="box-shadow: 2px 2px 5px rgb(124, 124, 124); border-radius: 1%;" >
+    </iframe>
+    <div class="calificacion" style="text-align: right;">
+      <span class="fas fa-star" id="1estrella" onclick="calificar(this)"></span>
+      <span class="fas fa-star" id="2estrella" onclick="calificar(this)"></span>
+      <span class="fas fa-star" id="3estrella" onclick="calificar(this)"></span>
+      <span class="fas fa-star" id="4estrella" onclick="calificar(this)"></span>
+      <span class="fas fa-star" id="5estrella" onclick="calificar(this)"></span>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+        <div class="col-6">
+          <button type="button" class="btn btn-dark"> <i class="fas fa-backward"></i> Anterior</button>
+        </div>
+        <div class="col-6" style="text-align: right;">
+          <button type="button" class="btn btn-dark">Siguiente <i class="fas fa-forward"></i></button>
+        </div>
+      </div>
+  </div>
+
+  <!--
+<div style="text-align: center; align-items: center; margin-top: 30px;">
+
+  <button type="button" class="btn btn-primary" id="liveToastBtn" style="width: 300px;">Me gusta este Modulo      <i class="fas fa-heart"></i></button>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <i class="fas fa-heart"></i>
+      <div style="width: 10px;"></div>
+      <strong class="me-auto">  SIGCA</strong>
+      <small>justo ahora</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Has indicado que te gusta este módulo
+    </div>
+  </div>
+</div>
+
+
+  <mat-form-field appearance="fill">
+  <mat-label>Snack bar duration (seconds)</mat-label>
+  <input type="number" [(ngModel)]="durationInSeconds" matInput>
+</mat-form-field>
+
+<button class="btn btn-danger" mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+  Pizza party
+</button>
+ -->
+
+
+</div>
+</div>
+
+</div>
+</body>
+<footer>
+  <div style="background-color: #02906f; height: 45px; color: white; text-align: center;">
+<div>
+  <div style="height: 10px;"></div>
+  <b>
+    Copyright © 2021 ADRA-Perú | Área de Bienestar y Desarrollo Integral
+</b>
+</div>
+  </div>
+</footer>
+
+
+
+
+
+

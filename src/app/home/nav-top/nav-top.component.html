@@ -1,0 +1,61 @@
+<header
+  class="w-100 config-nav-top d-flex justify-content-around align-items-center"
+>
+  <div class="row container">
+    <div class="h-100 d-flex align-items-center col-1">
+      <div ng-sidebar-content>
+        <button class="button fs-5" (click)="toggleSidebar()">
+          <i class="fas fa-bars icon w-100"></i>
+        </button>
+      </div>
+      <div class="col">
+        <img
+          src="/assets/images/adra.png"
+          alt=""
+          width="140px"
+          style="margin-left: 20px"
+        />
+      </div>
+    </div>
+
+    <div class="col-9" style="text-align: center">
+      <img
+        src="/assets/images/sigca.png"
+        alt=""
+        width="180px"
+        class="adra_img"
+        (click)="recargarPagina()"
+      />
+    </div>
+    <div class="col-2">
+      <div class="row">
+        <div class="col">
+          <a
+            href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwj-1_7mnsb0AhUhLLkGHeEED0UQFnoECAUQAQ&url=https%3A%2F%2Fwww.nuevotiempo.org%2Fprograma%2Freavivados-por-su-palabra-2%2F&usg=AOvVaw2Duoc_E7D7I4MfNLpQG6xb"
+            target="_blank"
+            style="
+              margin-right: 0;
+              font-size: 25px;
+              color: rgb(255, 157, 87);
+              text-align: right;
+            "
+            ><i class="fas fa-bible"></i
+          ></a>
+        </div>
+        <div class="position-relative main-perfil col">
+          <div class="main-icon d-flex align-items-center">
+            <i class="fas fa-user-circle icon-perfil"></i>
+            <i class="fas fa-angle-down icon-desplegar"></i>
+          </div>
+          <div class="position-absolute perfil">
+            <div class="perfil__container pt-3">
+              <h1 class="text-dark fs-3 perfil__title">{{ nombre }}</h1>
+              <h3 class="text-white fs-5 text-center">{{ rol }}</h3>
+              <button class="btn btn-warning" (click)="salir()">Salir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
