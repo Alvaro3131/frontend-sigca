@@ -67,7 +67,9 @@
   flex-direction: column;
   align-items: center;
 }
-
+.position-absolute.perfil {
+  z-index: 2; /* Ajusta el valor según sea necesario */
+}
 .perfil__title {
   text-align: center;
 }
