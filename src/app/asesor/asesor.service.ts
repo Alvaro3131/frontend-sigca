@@ -8,8 +8,8 @@ import { Pedido } from '../models/pedido';
   providedIn: 'root'
 })
 export class AsesorService {
-  private urlpost:string ='https://sigca-upeu.herokuapp.com/api/reportes'; 
-  private url:string ='https://sigca-upeu.herokuapp.com/api/pedidooracion'; 
+  private urlpost:string ='http://localhost:9090/api/reportes'; 
+  private url:string ='http://localhost:9090/api/pedidooracion'; 
   constructor(private http: HttpClient, private router: Router) { }
 
   getProgramasAsesor(id:number): Observable<ProgramaAsesor[]>{

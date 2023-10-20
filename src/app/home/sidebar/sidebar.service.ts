@@ -8,7 +8,7 @@ import { PrivilegiosUsuario } from 'src/app/equipo-tecnico/reportes/reporte';
   providedIn: 'root'
 })
 export class SidebarService {
-  private urlpost:string ='https://sigca-upeu.herokuapp.com/api/privilegios'; 
+  private urlpost:string ='http://localhost:9090/api/privilegios'; 
   constructor(private http: HttpClient, private router: Router) { }
   getPrivilegios(id:number): Observable<PrivilegiosUsuario[]>{
     return this.http.get<PrivilegiosUsuario[]>(`${this.urlpost}/usuario/${id}`);  

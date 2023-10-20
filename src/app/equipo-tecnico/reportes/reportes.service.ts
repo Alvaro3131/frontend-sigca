@@ -13,20 +13,20 @@ import { ProgresoSeminario } from 'src/app/models/ProgresoSeminario';
   providedIn: 'root'
 })
 export class ReportesService {
-  private urlpost:string ='https://sigca-upeu.herokuapp.com/api/reportes'; 
-  private urlsede:string ='https://sigca-upeu.herokuapp.com/api/sede'; 
-  private urldistrito:string ='https://sigca-upeu.herokuapp.com/api/distrito'; 
-  private urlbanco:string ='https://sigca-upeu.herokuapp.com/api/bancoComunal'; 
-  private urlprogramacion:string ='https://sigca-upeu.herokuapp.com/api/programacion'; 
-  private urlsesion:string ='https://sigca-upeu.herokuapp.com/api/sesion'; 
-  private urlbancoComunal:string ='https://sigca-upeu.herokuapp.com/api/bancoComunal/sede';
-  private urlmodulo:string = 'https://sigca-upeu.herokuapp.com/api/modulo/categoria';
-  private urlcategoria:string = 'https://sigca-upeu.herokuapp.com/api/categoria/all';
-  private urldesarrollodis:string = 'https://sigca-upeu.herokuapp.com/api/reportes/desarrollodistrito';
-  private urldesarrolloban:string = 'https://sigca-upeu.herokuapp.com/api/reportes/desarrollobanco';
-  private urlprogresoseminario:string = 'https://sigca-upeu.herokuapp.com/api/reportes/seminarios';
-  private urlprogresoseminariobanco:string = 'https://sigca-upeu.herokuapp.com/api/reportes/seminariosbanco';
-  private urlseminario:string = 'https://sigca-upeu.herokuapp.com/api/seminario';
+  private urlpost:string ='http://localhost:9090/api/reportes'; 
+  private urlsede:string ='http://localhost:9090/api/sede'; 
+  private urldistrito:string ='http://localhost:9090/api/distrito'; 
+  private urlbanco:string ='http://localhost:9090/api/bancoComunal'; 
+  private urlprogramacion:string ='http://localhost:9090/api/programacion'; 
+  private urlsesion:string ='http://localhost:9090/api/sesion'; 
+  private urlbancoComunal:string ='http://localhost:9090/api/bancoComunal/sede';
+  private urlmodulo:string = 'http://localhost:9090/api/modulo/categoria';
+  private urlcategoria:string = 'http://localhost:9090/api/categoria/all';
+  private urldesarrollodis:string = 'http://localhost:9090/api/reportes/desarrollodistrito';
+  private urldesarrolloban:string = 'http://localhost:9090/api/reportes/desarrollobanco';
+  private urlprogresoseminario:string = 'http://localhost:9090/api/reportes/seminarios';
+  private urlprogresoseminariobanco:string = 'http://localhost:9090/api/reportes/seminariosbanco';
+  private urlseminario:string = 'http://localhost:9090/api/seminario';
   constructor(private http: HttpClient, private router: Router) { }
   getParticipacion(banco:number, modulo:number): Observable<Participacion[]>{
     return this.http.get<Participacion[]>(`${this.urlpost}/participacion/${banco}/${modulo}`)

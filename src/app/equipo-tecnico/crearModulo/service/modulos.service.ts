@@ -11,43 +11,43 @@ import { Sesion } from 'src/app/models/sesion';
   providedIn: 'root',
 })
 export class ModulosService {
-  private urlmodulo: string = 'https://sigca-upeu.herokuapp.com/api/modulo';
-  private urlcategoria: string = 'https://sigca-upeu.herokuapp.com/api/categoria';
+  private urlmodulo: string = 'http://localhost:9090/api/modulo';
+  private urlcategoria: string = 'http://localhost:9090/api/categoria';
   private urlSesionesDelModulo: string =
-    'https://sigca-upeu.herokuapp.com/api/sesion/modulo';
+    'http://localhost:9090/api/sesion/modulo';
   private urlRecursoSesion: string =
-    'https://sigca-upeu.herokuapp.com/api/recursos/sesion/';
+    'http://localhost:9090/api/recursos/sesion/';
 
-  private urlInsertarModulo: string = 'https://sigca-upeu.herokuapp.com/api/modulo/new';
+  private urlInsertarModulo: string = 'http://localhost:9090/api/modulo/new';
   private urlEliminarModulo: string =
-    'https://sigca-upeu.herokuapp.com/api/modulo/delete/';
+    'http://localhost:9090/api/modulo/delete/';
 
-  private urlBuscarModulo: string = 'https://sigca-upeu.herokuapp.com/api/modulo/search/';
-  private urlUpdateModulo: string = 'https://sigca-upeu.herokuapp.com/api/modulo/update/';
+  private urlBuscarModulo: string = 'http://localhost:9090/api/modulo/search/';
+  private urlUpdateModulo: string = 'http://localhost:9090/api/modulo/update/';
 
-  private urlInsertarSesion: string = 'https://sigca-upeu.herokuapp.com/api/sesion/new';
+  private urlInsertarSesion: string = 'http://localhost:9090/api/sesion/new';
 
   private urlEliminarSesion: string =
-    'https://sigca-upeu.herokuapp.com/api/sesion/delete/';
+    'http://localhost:9090/api/sesion/delete/';
 
-  private urlUpdateSesion: string = 'https://sigca-upeu.herokuapp.com/api/sesion/update/';
+  private urlUpdateSesion: string = 'http://localhost:9090/api/sesion/update/';
 
-  private urlBuscarSesion: string = 'https://sigca-upeu.herokuapp.com/api/sesion/search/';
+  private urlBuscarSesion: string = 'http://localhost:9090/api/sesion/search/';
 
   private urlBuscarRecurso: string =
-    'https://sigca-upeu.herokuapp.com/api/recursos/sesion/';
+    'http://localhost:9090/api/recursos/sesion/';
 
-  private urlTraerTipoRecurso: string = 'https://sigca-upeu.herokuapp.com/api/tipo/all';
-  private urlAgregarRecurso: string = 'https://sigca-upeu.herokuapp.com/api/recursos/new';
+  private urlTraerTipoRecurso: string = 'http://localhost:9090/api/tipo/all';
+  private urlAgregarRecurso: string = 'http://localhost:9090/api/recursos/new';
 
   private urlEliminarRecurso: string =
-    'https://sigca-upeu.herokuapp.com/api/recursos/delete/';
+    'http://localhost:9090/api/recursos/delete/';
 
   private urlUpdaterRecurso: string =
-    'https://sigca-upeu.herokuapp.com/api/recursos/update/';
+    'http://localhost:9090/api/recursos/update/';
 
   private urlBuscarRecursoID: string =
-    'https://sigca-upeu.herokuapp.com/api/recursos/search/';
+    'http://localhost:9090/api/recursos/search/';
 
   constructor(private http: HttpClient) {}
 

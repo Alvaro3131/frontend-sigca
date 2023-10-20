@@ -15,13 +15,13 @@ export class SocioService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  private urlpost:string ='https://sigca-upeu.herokuapp.com/api/pedidooracion/new';
-  private urlget:string ='https://sigca-upeu.herokuapp.com/api/seminario/socio';
-  private progres:string ='https://sigca-upeu.herokuapp.com/api/reportes/progreso';
-  private asistencia:string ='https://sigca-upeu.herokuapp.com/api/asistenciaseminario/new';
-  private recurso:string ='https://sigca-upeu.herokuapp.com/api/reportes/asistenciaRecurso';
-  private estadoAsistencia:string ='https://sigca-upeu.herokuapp.com/api/AsistenciaRecurso/asistencia';
-  private asis:string ='https://sigca-upeu.herokuapp.com/api/asistenciaseminario/validacion';
+  private urlpost:string ='http://localhost:9090/api/pedidooracion/new';
+  private urlget:string ='http://localhost:9090/api/seminario/socio';
+  private progres:string ='http://localhost:9090/api/reportes/progreso';
+  private asistencia:string ='http://localhost:9090/api/asistenciaseminario/new';
+  private recurso:string ='http://localhost:9090/api/reportes/asistenciaRecurso';
+  private estadoAsistencia:string ='http://localhost:9090/api/AsistenciaRecurso/asistencia';
+  private asis:string ='http://localhost:9090/api/asistenciaseminario/validacion';
 
   constructor(private http: HttpClient, private router: Router) { }
   insertarModulo(obj: Pedido) {
