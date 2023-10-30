@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { PrivilegiosUsuario } from 'src/app/equipo-tecnico/reportes/reporte';
 import { SidebarService } from './sidebar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'SIGCA-sidebar',
@@ -18,7 +19,7 @@ export class SidebarComponent implements OnInit {
   estado_desplegar1:boolean=false;
   estado_desplegar2:boolean=false;
   privi:PrivilegiosUsuario[]=[];
-  constructor(private ren2: Renderer2,private privilegios:SidebarService) {
+  constructor(private ren2: Renderer2,private privilegios:SidebarService, private router:Router) {
 
   }
 
@@ -82,34 +83,34 @@ export class SidebarComponent implements OnInit {
   this.link.emit(x);
  }
  asignar():void {
-   this.link.emit('equipo-tecnico/asignar-banco-modulo')
+   this.router.navigate(['equipo-tecnico/asignar-banco-modulo'])
  }
  seguimientoSocio():void{
-  this.link.emit('asesor');
+  this.router.navigate(['asesor']);
 
 }
  enviarParticipacion():void{
-   this.link.emit('equipo-tecnico/reportes/reporte-participacion');
+  this.router.navigate(['equipo-tecnico/reportes/reporte-participacion']);
 
  }
  enviarParticipantes():void{
-   this.link.emit('equipo-tecnico/reportes/reporte-participantes');
+  this.router.navigate(['equipo-tecnico/reportes/reporte-participantes']);
  }
 
  enviarSeminario():void{
-   this.link.emit('equipo-tecnico/reportes/reporte-seminario');
+  this.router.navigate(['equipo-tecnico/reportes/reporte-seminario']);
  }
 
  enviarBancaModulo():void{
-  this.link.emit('equipo-tecnico/bancaModulo');
+  this.router.navigate(['equipo-tecnico/bancaModulo']);
  }
 
  enviarControlarModulo():void{
-  this.link.emit('equipo-tecnico/controlarModulo');
+  this.router.navigate(['equipo-tecnico/controlarModulo']);
  }
 
  enviarCrearSeminario():void{
-   this.link.emit('equipo-tecnico/crearSeminario');
+  this.router.navigate(['equipo-tecnico/crearSeminario']);
  }
 
 desplegar(){

@@ -37,10 +37,8 @@ export class SocioComponent implements OnInit {
   ngOnInit(): void {
     this.model.des='Escribir pedido, agradecimiento o necesidad';
     this.mo.comentario='Escribir comentario';
+    
     this.listarDistritos();
-
-
-
   }
 
   Progreso():void{
@@ -119,11 +117,10 @@ export class SocioComponent implements OnInit {
   }
   listarDistritos(){
     var o=Number(sessionStorage.getItem('idusuario'));
-     this.pedido.getSeminarios(o).subscribe(listas=>{
+   
+     this.pedido.getSeminarios(o).subscribe((listas)=>{
        this.semi=listas;
        console.log(this.semi)
-
-
      });
    }
    entrar(i:number){
@@ -138,14 +135,16 @@ export class SocioComponent implements OnInit {
    this.pedido.getAsistencia(this.idseminario,this.idusuario).subscribe(listas=>{
     this.validacion=listas;
     if(this.validacion==null){
-      
-      $("#Asistencia").modal("show");
+ 
     }else{
+
       swal.fire({
         title: 'Solo puede registrar su asistencia una vez',
         text: '',
         icon: 'warning',
         confirmButtonText: 'OK'
+      }).then((resultado) => {
+        $("#Asistencia").modal("hide");
       })
     }
     console.log(this.validacion)

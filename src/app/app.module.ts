@@ -49,36 +49,35 @@ const routes: Routes = [
       { path: 'pedido', component: PedidoComponent }
     ],
   },
-  { path: 'dashboard/equipoTecnico', component: PrincipalComponent },
+  { path: 'dashboard/equipoTecnico', component: PrincipalComponent,children: [
+    { path: 'crearModulo', component: MainCrearModuloComponent },
+    { path: 'crearSeminario', component: MainSeminarioComponent },
 
+    { path: 'asignacion', component: AsignarBancoModuloComponent},
+
+    { path: 'controlarModulo', component: MainControlarModuloComponent },
+    {
+      path: 'reportes',
+      component: ReportesRutasComponent,
+      children: [
+        {
+          path: 'reporte-participacion',
+          component: ReporteParticipacionComponent,
+          children: [{ path: 'tabla1', component: Tabla1Component }],
+        },
+        {
+          path: 'reporte-participantes',
+          component: ReporteParticipantesComponent,
+        },
+        { path: 'reporte-seminario', component: ReporteSeminarioComponent },
+        { path: 'desarrollo', component: DesarrollomoduloComponent }
+      ],
+    },
+  ],},
   {
     path: 'equipo-tecnico',
     component: UsuarioRutasComponent,
-    children: [
-      { path: 'crearModulo', component: MainCrearModuloComponent },
-      { path: 'crearSeminario', component: MainSeminarioComponent },
 
-      { path: 'asignacion', component: AsignarBancoModuloComponent},
-
-      { path: 'controlarModulo', component: MainControlarModuloComponent },
-      {
-        path: 'reportes',
-        component: ReportesRutasComponent,
-        children: [
-          {
-            path: 'reporte-participacion',
-            component: ReporteParticipacionComponent,
-            children: [{ path: 'tabla1', component: Tabla1Component }],
-          },
-          {
-            path: 'reporte-participantes',
-            component: ReporteParticipantesComponent,
-          },
-          { path: 'reporte-seminario', component: ReporteSeminarioComponent },
-          { path: 'desarrollo', component: DesarrollomoduloComponent }
-        ],
-      },
-    ],
   },
 ];
 //cambios

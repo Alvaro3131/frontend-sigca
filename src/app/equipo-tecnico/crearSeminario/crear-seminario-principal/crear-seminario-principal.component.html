@@ -5,7 +5,7 @@
     Lista Seminarios
     <button
       type="button"
-      class="fas fa-plus-circle"
+      class="fas fa-plus-circle agregarSeminario"
       data-bs-toggle="modal"
       data-bs-target="#exampleModal"
       style="border: none; background-color: white; color: #007b5e"
@@ -29,7 +29,7 @@
       <tbody>
         <tr *ngFor="let pro of semi">
           <th scope="row">{{ pro.id_SEMINARIO }}</th>
-          <td>{{ pro.NO_SEMINARIO }}</td>
+          <td class="nombreSeminario">{{ pro.NO_SEMINARIO }}</td>
           <td>{{ pro.URL_SEMINARIO }}</td>
           <td>{{ pro.FE_INICIO | date: "mediumDate" }}</td>
           <td>{{ pro.FE_FIN | date: "mediumDate" }}</td>
@@ -38,6 +38,7 @@
               class="fas fa-edit"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
+              name="edicion"
               style="background-color: transparent; border: none"
               (click)="CambiarEstado(pro.id_SEMINARIO)"
             ></i>
@@ -92,6 +93,7 @@
                     class="form-control"
                     id="floatingInput"
                     placeholder="name@example.com"
+                    name="nombreSeminario"
                     [(ngModel)]="inSeminario.NO_SEMINARIO"
                   />
                   <label for="floatingInput">Ingrese Nombre</label>
@@ -101,6 +103,7 @@
                     type="text"
                     class="form-control"
                     id="floatingInput"
+                    name="urlSeminario"
                     placeholder="name@example.com"
                     [(ngModel)]="inSeminario.URL_SEMINARIO"
                   />
@@ -134,6 +137,7 @@
               type="button"
               class="btn btn-danger"
               data-bs-dismiss="modal"
+          
               (click)="limpiarSeminario()"
             >
               Close
@@ -143,6 +147,7 @@
               class="btn btn-primary"
               (click)="GuardarSeminario()"
               data-bs-dismiss="modal"
+              name="botonGuardarSeminario"
             >
               Guardar Cambios
             </button>
@@ -156,6 +161,7 @@
               type="button"
               class="btn btn-danger"
               data-bs-dismiss="modal"
+              name="cerrarModal"
               (click)="limpiarSeminario()"
             >
               Close
@@ -165,6 +171,7 @@
               class="btn btn-primary"
               (click)="EditarSeminario()"
               data-bs-dismiss="modal"
+              name="botonGuardarSeminario"
             >
               Editar Cambios
             </button>

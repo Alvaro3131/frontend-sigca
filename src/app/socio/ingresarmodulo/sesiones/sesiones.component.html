@@ -41,7 +41,7 @@
             [attr.id]="'accordion-body-' + index"
             [attr.aria-labelledby]="'accordion-header-' + index">
 
-            <a *ngFor="let recurso of recursos; let i = index;" href={{recurso.DESC_RECURSO}} target="reproduccion" onclick="" (click)="guardarAsistencia(i)">
+            <a *ngFor="let recurso of recursos; let i = index;" href={{recurso.DESC_RECURSO}} class="recurso" target="reproduccion" onclick="" (click)="guardarAsistencia(i)">
               <button id="liveToastBtn" class="btn btn-outline-success" type="button" style="width: 100%; text-align: left; margin-top: 10px;">
                 <div class="row">
                   <div class="col-1" style="color: red;"><i class="fas fa-play"></i></div>

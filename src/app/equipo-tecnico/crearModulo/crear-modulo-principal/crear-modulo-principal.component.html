@@ -15,6 +15,7 @@
         <option selected autofocus>Selecione Módulo</option>
         <option
           value="{{ modulo.id_modulo }}"
+          class="opcionesModulos"
           *ngFor="let modulo of selectModulo"
           (click)="traerSesion(modulo.id_modulo)"
         >
@@ -90,7 +91,7 @@
               <input
                 name="nombreModulo"
                 type="text"
-                class="form-control"
+                class="form-control nuevoModulo"
                 [(ngModel)]="nombreModulo"
                 placeholder=" Ingrese Modulo"
               />
@@ -98,7 +99,7 @@
             <div class="mb-3">
               <select
                 #categoria
-                class="w-100 form-select"
+                class="w-100 form-select categoria"
                 aria-label="Default select example"
                 (change)="getvalCategoria()"
               >
@@ -126,7 +127,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary guardarModulo"
             data-bs-dismiss="modal"
             (click)="guardar()"
           >
@@ -163,7 +164,7 @@
               <input
                 name="nombreModulo"
                 type="text"
-                class="form-control"
+                class="form-control actualizarCapacitacion"
                 [value]="updateModulo.no_modulo"
                 [(ngModel)]="nombreModulo"
                 placeholder=" Ingrese Modulo"
@@ -172,7 +173,7 @@
             <div class="mb-3">
               <select
                 #categoriaupdate
-                class="w-100 form-select"
+                class="w-100 form-select actualizarCapacitacion1"
                 aria-label="Default select example"
                 (change)="getvalCategoriaUpdate()"
               >
@@ -200,7 +201,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary actualizarCapacitacion2 "
             data-bs-dismiss="modal"
             (click)="editarModulo()"
           >
@@ -237,7 +238,7 @@
               <input
                 name="nombreModulo"
                 type="text"
-                class="form-control"
+                class="form-control sesionNueva"
                 [(ngModel)]="inSesion.no_sesion"
                 placeholder=" Ingrese Sesion"
               />
@@ -255,7 +256,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary guardarSesion"
             data-bs-dismiss="modal"
             (click)="insertarSesion()"
           >

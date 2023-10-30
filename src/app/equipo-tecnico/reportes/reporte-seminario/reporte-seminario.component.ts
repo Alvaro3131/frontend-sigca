@@ -62,9 +62,7 @@ listarDistritos(){
  }
 
  listartabla(){
- 
   
-    
   if(this.banco=='Banco'){
     sessionStorage.setItem('distrito',this.distri);
     sessionStorage.setItem('seminario',this.seminario);

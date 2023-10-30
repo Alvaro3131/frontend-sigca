@@ -19,7 +19,7 @@ import { AsignarBancoModuloComponent } from './asignacion/asignar-banco-modulo.c
 
 const routes: Routes = [
   { path: 'crearModulo', component: MainCrearModuloComponent },
-  { path: 'reportes', component: ReportesRutasComponent },
+  { path: 'reportes', loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesModule) },
   { path: 'crearSeminario', component: MainSeminarioComponent },
 
   { path: 'asignacion', component: AsignarBancoModuloComponent },
